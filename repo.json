@@ -1,0 +1,8 @@
+{
+    "name": "Repository name here",
+    "description": "A description of your repository here",
+    "manifestVersion": 1,
+    "pluginLists": [
+      "https://raw.githubusercontent.com/thucvt/cinehay/builds/plugins.json"
+    ]
+}
