@@ -1,5 +1,5 @@
-import com.lagradost.cloudstream3.gradle.CloudstreamExtension 
 import com.android.build.gradle.BaseExtension
+import com.lagradost.cloudstream3.gradle.CloudstreamExtension
 
 buildscript {
     repositories {
@@ -16,7 +16,6 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.21")
     }
 }
-
 allprojects {
     repositories {
         google()
@@ -66,18 +65,33 @@ subprojects {
     dependencies {
         val apk by configurations
         val implementation by configurations
-
-        // Stubs for all Cloudstream classes
+//        // Stubs for all Cloudstream classes
         apk("com.lagradost:cloudstream3:pre-release")
 
-        // these dependencies can include any of those which are added by the app,
-        // but you dont need to include any of them if you dont need them
-        // https://github.com/recloudstream/cloudstream/blob/master/app/build.gradle
+//        val apkTasks = listOf("deployWithAdb", "build")
+//        val useApk = gradle.startParameter.taskNames.any { taskName ->
+//            apkTasks.any { apkTask ->
+//                taskName.contains(apkTask, ignoreCase = true)
+//            }
+//        }
+//
+//        if (useApk) {
+//            // Stubs for all Cloudstream classes
+//            apk("com.lagradost:cloudstream3:pre-release")
+//        } else {
+//            // For running locally
+//            implementation("com.github.Blatzar:CloudstreamApi:0.1.6")
+//        }
+
+//         Rest of your code here...
+        implementation("com.github.HaiGH-Space:M3U8Paser:v0.0.1")
+        implementation("io.github.cdimascio:dotenv-kotlin:6.4.2")
         implementation(kotlin("stdlib")) // adds standard kotlin features
-        implementation("com.github.Blatzar:NiceHttp:0.4.4") // http library
+        implementation("com.github.Blatzar:NiceHttp:0.4.11") // http library
         implementation("org.jsoup:jsoup:1.16.2") // html parser
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.16.0")
         implementation("com.fasterxml.jackson.core:jackson-databind:2.16.0")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     }
 }
 
